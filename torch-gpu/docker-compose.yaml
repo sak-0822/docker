@@ -2,19 +2,16 @@ version: "3"
 services:
   pyserver:
     container_name: torch-gpu
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
     deploy:
       resources:
         reservations:
           devices:
             - driver: nvidia
               capabilities: [gpu]
-    environment:
-      - NVIDIA_VISIBLE_DEVICES=all
-    volumes:
-      - .:/workspace
-    command: nvidia-smi
-    working_dir: /workspace
-    entrypoint: bash
     ports:
       - "8888:8888"
+    tty: true
+    command: jupyter-lab --ip 0.0.0.0 --port=8888

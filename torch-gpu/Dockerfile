@@ -16,5 +16,3 @@ USER $NB_UID
 RUN mkdir "/home/$NB_USER/work"
 
 WORKDIR "/home/$NB_USER/work"
-
-CMD ["jupyter", "lab", "--ip=*", "--no-browser"]
