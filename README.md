@@ -7,6 +7,6 @@ In order to use, type in your CLI
 docker build -t <name> <path to Dockerfile>
 docker run -it --rm --gpus all <name> bash
   
-##or
+## or
 docker-compose up -d
  
